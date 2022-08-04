@@ -63,7 +63,7 @@
                                     $result = mysqli_query($dbCon, "SELECT * FROM country");
                                     while ($row = mysqli_fetch_array($result)) {
                                     ?>
-                                        <option value="<?php echo $row['country_id']; ?>"><?php echo $row["country_name"]; ?></option>
+                                        <option value="<?php echo $row['country_name']; ?>"><?php echo $row["country_name"]; ?></option>
                                     <?php
                                     }
                                     ?>
@@ -95,12 +95,12 @@
     <script>
         $(document).ready(function() {
             $('#country-dropdown').on('change', function() {
-                var country_id = this.value;
+                var country_name = this.value;
                 $.ajax({
                     url: "states-by-country.php",
                     type: "POST",
                     data: {
-                        country_id: country_id
+                        country_name: country_name
                     },
                     cache: false,
                     success: function(result) {
@@ -113,12 +113,12 @@
                 });
             });
             $('#state-dropdown').on('change', function() {
-                var state_id = this.value;
+                var state_name = this.value;
                 $.ajax({
                     url: "cities-by-state.php",
                     type: "POST",
                     data: {
-                        state_id: state_id
+                        state_name: state_name
                     },
                     cache: false,
                     success: function(result) {
