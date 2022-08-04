@@ -1,3 +1,7 @@
+<?php 
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -83,6 +87,11 @@
                             <div class="mb-3">
                                 <label for="image" class="form-label">Image</label>
                                 <input type="file" class="form-control" name="image">
+                                <span class="text-danger"><?php 
+                                if(isset($_SESSION['image_error_msg'])) {
+                                    echo $_SESSION['image_error_msg']; 
+                                    unset($_SESSION['image_error_msg']);
+                                }?></span>
                             </div>
                             <input type="submit" class="btn btn-primary my-3"></button>
                         </form>
