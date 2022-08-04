@@ -1,9 +1,7 @@
 <?php
     require_once "dbConnection.php";
     $state_name = $_POST["state_name"];
-    $sql = 'select * from city c left join state s on c.state_id = s.state_id
-    union
-    select * from city c right join state s on c.state_id = s.state_id where state_name=' . "'" . $state_name . "'";
+    $sql = 'select * from city c right join state s on c.state_id = s.state_id where state_name=' . "'" . $state_name . "'";
     $result = mysqli_query($dbCon, $sql);
 ?>
     <option value="" selected>Select State</option>
